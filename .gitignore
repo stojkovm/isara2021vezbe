@@ -43,6 +43,8 @@ Temporary Items
 .settings/
 .loadpath
 .recommenders
+.classpath
+.project
 
 # Compiled class file
 *.class
