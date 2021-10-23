@@ -13,7 +13,7 @@ Kada dodate novu zavisnost u pom.xml, na snimanje izmena će se automatski pokre
 
 * [Opseg i životni ciklus serverskih komponenti](https://www.youtube.com/watch?v=AMQcujPq8Wg)
 * [Dependency Injection](https://www.youtube.com/watch?v=XjgA8vZ-TcM)
-* [Spring.pdf](https://github.com/stojkovm/isa2021vezbe/blob/master/Vezbe02/Spring.pdf) iz foldera _Vezbe02_
+* [Spring.pdf](https://github.com/stojkovm/isara2021vezbe/blob/main/Vezbe02/Spring.pdf) iz foldera _Vezbe02_
 
 ## springapp-xml-configuration
 
