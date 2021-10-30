@@ -7,7 +7,7 @@ Primer Spring web aplikacije sa JSP stranicama. Pogledati u __pom.xml__ zavisnos
 ###### Materijali koje je neophodno proučiti da bi se primer mogao uspešno ispratiti:
 
 * [Arhitekture klasičnih i savremenih web aplikacija](https://www.youtube.com/watch?v=XnEnUtSw8Rc)
-* [REST.pdf](https://github.com/katarinaa94/isa2021-siit/blob/master/Vezbe03/REST.pdf) iz foldera _Vezbe03_
+* [REST.pdf](https://github.com/stojkovm/isara2021vezbe/blob/main/Vezbe03/REST.pdf) iz foldera _Vezbe03_
 
 ###### Struktura primera
 
@@ -106,7 +106,7 @@ Primer se ne razlikuje mnogo od primera sa JSP stranicama. Jedina razlika je u k
 ###### Materijali koje je neophodno proučiti da bi se primer mogao uspešno ispratiti:
 
 * [Arhitekture klasičnih i savremenih web aplikacija](https://www.youtube.com/watch?v=XnEnUtSw8Rc)
-* [REST.pdf](https://github.com/katarinaa94/isa2021-siit/blob/master/Vezbe03/REST.pdf) iz foldera _Vezbe03_
+* [REST.pdf](https://github.com/stojkovm/isara2021vezbe/blob/main/Vezbe03/REST.pdf) iz foldera _Vezbe03_
 
 ###### Struktura primera
 
@@ -134,7 +134,6 @@ Gore navedene anotacije dodatno mogu da sadrže i sledeće atribute:
 
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 * [Spring Restful Web Services Example](https://www.journaldev.com/2552/spring-rest-example-tutorial-spring-restful-web-services)
-* [Spring REST Tutorials](https://howtodoinjava.com/spring-restful/)
 
 ###### Pokretanje primera (Eclipse)
 
