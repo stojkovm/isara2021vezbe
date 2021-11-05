@@ -75,7 +75,7 @@ Ono što se očekuje od studenata je da za svoj projekat kreiraju i skriptu za p
 
 #### Struktura projekta
 
-Model podataka koji se koriste u prilogu izgleda kao na slici:
+Model podataka koji se koriste u prilogu izgleda kao na slici: <br>
 ![ISA model jpa-example](https://i.imgur.com/SUpm4Z1.jpg  "jpa-example db model")
 
 U primeru je prikazana tipična [višeslojna arhitektura](https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/) serverske strane monolitne Spring Boot aplikacije koja ima sledeće komponente (objašnjene u primerima jsp-example i rest-example u folderu _Vezbe03_):
