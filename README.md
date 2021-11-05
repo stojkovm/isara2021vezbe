@@ -11,7 +11,7 @@
     - Na emailove koji nemaju potpune podatke studenata neće biti odgovarano.
     - Da bi se adekvatno odgovorilo na email, od studenata se zahteva da u emailu navedu sve potrebne informacije (što često nije slučaj). Šablon kojeg biste trebali da se pridržavate:
 
-| Subject:	| <smer>, <naziv_predmeta>, <broj_indeksa> <ime_i_prezime>, <kratak_opis_problema> |
+| Subject:	| <_smer>, <naziv_predmeta>, <broj_indeksa> <ime_i_prezime>, <kratak_opis_problema> |
 | ----------| -------------------------------------------------------------------------------- |
 | Početak obraćanja: | Poštovani <ime/prezime osobe kojoj se obraćate uz uvažavanje godina/pozicije te osobe>, |
 | Tekst: | <detaljan opis molbe/žalbe/primedbe koji će sadržati i naziv predmeta u nekom trenutku> |
