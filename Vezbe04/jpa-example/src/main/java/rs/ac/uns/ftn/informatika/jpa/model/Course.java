@@ -1,7 +1,6 @@
 package rs.ac.uns.ftn.informatika.jpa.model;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,7 +20,7 @@ public class Course {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 
 	@Column(name = "name", nullable = false)
 	private String name;
@@ -32,12 +31,16 @@ public class Course {
 	@ManyToMany
 	@JoinTable(name = "teaching", joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "id"))
 	private Set<Teacher> teachers = new HashSet<Teacher>();
+	
+	public Course() {
+		
+	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -84,15 +87,12 @@ public class Course {
 			return false;
 		}
 		Course c = (Course) o;
-		if (c.id == null || id == null) {
-			return false;
-		}
-		return Objects.equals(id, c.id);
+		return id != null && id.equals(c.getId());
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hashCode(id);
+		return 1337;
 	}
 
 	@Override

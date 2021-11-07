@@ -45,7 +45,7 @@ public class CourseController {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<CourseDTO> getCourse(@PathVariable Long id) {
+	public ResponseEntity<CourseDTO> getCourse(@PathVariable Integer id) {
 
 		Course course = courseService.findOne(id);
 
@@ -84,7 +84,7 @@ public class CourseController {
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteCourse(@PathVariable Integer id) {
 
 		Course course = courseService.findOne(id);
 
@@ -97,7 +97,7 @@ public class CourseController {
 	}
 
 	@GetMapping(value = "/{courseId}/exams")
-	public ResponseEntity<List<ExamDTO>> getStudentExams(@PathVariable Long courseId) {
+	public ResponseEntity<List<ExamDTO>> getStudentExams(@PathVariable Integer courseId) {
 
 		Course course = courseService.findOneWithExams(courseId);
 

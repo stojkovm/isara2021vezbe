@@ -60,7 +60,7 @@ public class TeacherController {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<TeacherDTO> getTeacher(@PathVariable Long id) {
+	public ResponseEntity<TeacherDTO> getTeacher(@PathVariable Integer id) {
 
 		Teacher teacher = teacherService.findOne(id);
 
@@ -100,7 +100,7 @@ public class TeacherController {
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> deleteTeacher(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteTeacher(@PathVariable Integer id) {
 
 		Teacher teacher = teacherService.findOne(id);
 
@@ -113,7 +113,7 @@ public class TeacherController {
 	}
 
 	@GetMapping(value = "/{teacherId}/courses")
-	public ResponseEntity<List<CourseDTO>> getTeacherCourses(@PathVariable Long teacherId) {
+	public ResponseEntity<List<CourseDTO>> getTeacherCourses(@PathVariable Integer teacherId) {
 
 		Teacher teacher = teacherService.findOneWithCourses(teacherId);
 

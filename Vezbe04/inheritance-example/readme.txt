@@ -6,7 +6,7 @@ Internet softverske arhitekture / 2021.
 ---------------
 Primeri tri varijante za mapiranje nasledjivanja. U svim varijantama 
 koriste se sledeci fajlovi:
-BillingDetails.java - apstraktna klasa sa jednim atributom
+BillingDetails.java - (apstraktna) klasa sa jednim atributom
 CreditCard.java     - konkretna klasa sa podacima o kreditnoj kartici
 BankAccount.java    - konkretna klasa sa podacima o bankovnom racunu
 

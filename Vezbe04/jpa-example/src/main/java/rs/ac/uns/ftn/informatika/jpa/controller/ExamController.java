@@ -76,7 +76,7 @@ public class ExamController {
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> deleteExam(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteExam(@PathVariable Integer id) {
 
 		Exam exam = examService.findOne(id);
 

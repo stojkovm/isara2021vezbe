@@ -64,7 +64,7 @@ public class StudentController {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<StudentDTO> getStudent(@PathVariable Long id) {
+	public ResponseEntity<StudentDTO> getStudent(@PathVariable Integer id) {
 
 		Student student = studentService.findOne(id);
 
@@ -107,7 +107,7 @@ public class StudentController {
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteStudent(@PathVariable Integer id) {
 
 		Student student = studentService.findOne(id);
 
@@ -170,7 +170,7 @@ public class StudentController {
 	}
 
 	@GetMapping(value = "/{studentId}/exams")
-	public ResponseEntity<List<ExamDTO>> getStudentExams(@PathVariable Long studentId) {
+	public ResponseEntity<List<ExamDTO>> getStudentExams(@PathVariable Integer studentId) {
 		
 		//traze se polozeni ispiti studenta, sto znaci da moramo uputiti JOIN FETCH upit
 		//kako bismo dobili sve trazene podatke

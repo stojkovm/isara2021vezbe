@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.informatika.jpa.dto;
 import rs.ac.uns.ftn.informatika.jpa.model.Teacher;
 
 public class TeacherDTO {
-	private Long id;
+	private Integer id;
 	private String firstName;
 	private String lastName;
 
@@ -15,18 +15,18 @@ public class TeacherDTO {
 		this(teacher.getId(), teacher.getFirstName(), teacher.getLastName());
 	}
 
-	public TeacherDTO(Long id, String firstName, String lastName) {
+	public TeacherDTO(Integer id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

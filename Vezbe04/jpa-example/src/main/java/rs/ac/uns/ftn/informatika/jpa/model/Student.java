@@ -19,6 +19,23 @@ import javax.persistence.OneToMany;
  * specificira tacan naziv tabele u bazi, sema kojoj pripada, itd. Ako se izostavi ova anotacija, dovoljno je
  * imati anotaciju @Entity i u bazi ce se kreirati tabela sa nazivom klase.
  */
+
+/*
+ * Efikasnost asocijacija:
+ * 
+ * One-To-One:
+ * - Unidirekcione/bidirekcione @OneToOne veze sa @MapsId su efikasne
+ * - Bidirekcione @OneToOne bez @MapsId su manje efikasne
+ * 
+ * One-To-Many:
+ * - Bidirekcione @OneToMany i unidirekcione @ManyToOne su efikasne
+ * - Unidirekcione @OneToMany sa Set kolekcijom su manje efikasne
+ * - Unidirekcione @OneToMany sa List kolekcijom su prilično neefikasne
+ * 
+ * Many-To-Many:
+ * - Unidirekcione/bidirekcione @ManyToMany sa Set kolekcijom su efikasne
+ * - Unidirekcione/bidirekcione @ManyToMany sa List kolekcijom su prilično neefikasne
+ */
 @Entity
 public class Student {
 
@@ -35,7 +52,7 @@ public class Student {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 
 	/*
 	 * Kolona moze imati ime koje se razlikuje od naziva atributa.
@@ -83,7 +100,7 @@ public class Student {
 		super();
 	}
 
-	public Student(Long id, String index, String firstName, String lastName) {
+	public Student(Integer id, String index, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.index = index;
@@ -91,11 +108,11 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -144,6 +161,21 @@ public class Student {
 	}
 
 
+	/*
+	 * Pri implementaciji equals and hashCode metoda treba obratiti paznju da se
+	 * one razlikuju kada se koristi ORM (Hibernate) i kada se klase posmatraju kao
+	 * obicne POJO klase. Hibernate zahteva da entitet mora biti jednak samom sebi kroz sva
+	 * stanja tog objekta (tranzijentni (novi objekat), perzistentan (persistent), otkacen (detached) i obrisan (removed)).
+	 * To znaci da bi dobar pristup bio da se za generisanje equals i hashCode metoda koristi podatak
+	 * koji je jedinstven a poznat unapred (tzv. business key) npr. index studenta, isbn knjige, itd.
+	 * U slucaju da takvog obelezja nema, obicno se implementacija svodi na proveri da li je id (koji je kljuc) isti.
+	 * Posto u velikom broju slucajeva id baza generise, to znaci da u tranzijentnom stanju objekti nisu jednaki.
+	 * Postoji nekoliko resenja za ovaj problem:
+	 * 1. Naci neko jedinstveno obelezje
+	 * 2. Koristiti prirodne kljuceve
+	 * 3. Pre cuvanja na neki nacin saznati koja je sledeca vrednost koju ce baza generisati pa pozvati setId metodu da se kompletira objekat cak i pre cuvanja
+	 * 4. Na drugi nacin implementirati equals i hashCode - primer u klasi Teacher
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -153,15 +185,15 @@ public class Student {
 			return false;
 		}
 		Student s = (Student) o;
-		if (s.id == null || id == null) {
+		if (s.index == null || index == null) {
 			return false;
 		}
-		return Objects.equals(id, s.id);
+		return Objects.equals(index, s.index);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hashCode(id);
+		return Objects.hashCode(index);
 	}
 
 	@Override

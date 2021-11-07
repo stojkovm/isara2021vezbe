@@ -16,7 +16,7 @@ public class StudentService {
 	@Autowired
 	private StudentRepository studentRepository;
 	
-	public Student findOne(Long id) {
+	public Student findOne(Integer id) {
 		return studentRepository.findById(id).orElseGet(null);
 	}
 
@@ -32,7 +32,7 @@ public class StudentService {
 		return studentRepository.save(student);
 	}
 
-	public void remove(Long id) {
+	public void remove(Integer id) {
 		studentRepository.deleteById(id);
 	}
 	
@@ -52,7 +52,7 @@ public class StudentService {
 		return studentRepository.pronadjiStudentePoPrezimenu(prezime);
 	}
 	
-	public Student findOneWithExams(Long studentId) {
+	public Student findOneWithExams(Integer studentId) {
 		return studentRepository.findOneWithExams(studentId);
 	}
 }

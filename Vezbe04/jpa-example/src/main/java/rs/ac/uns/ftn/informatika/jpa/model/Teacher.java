@@ -1,7 +1,6 @@
 package rs.ac.uns.ftn.informatika.jpa.model;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,7 +15,7 @@ public class Teacher {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 
 	@Column(name = "firstName", nullable = false)
 	private String firstName;
@@ -26,12 +25,16 @@ public class Teacher {
 
 	@ManyToMany(mappedBy = "teachers")
 	private Set<Course> courses = new HashSet<Course>();
+	
+	public Teacher() {
+		
+	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -59,6 +62,21 @@ public class Teacher {
 		this.courses = courses;
 	}
 
+	/*
+	 * Pri implementaciji equals and hashCode metoda treba obratiti paznju da se
+	 * one razlikuju kada se koristi ORM (Hibernate) i kada se klase posmatraju kao
+	 * obicne POJO klase. Hibernate zahteva da entitet mora biti jednak samom sebi kroz sva
+	 * stanja tog objekta (tranzijentni (novi objekat), perzistentan (persistent), otkacen (detached) i obrisan (removed)).
+	 * To znaci da bi dobar pristup bio da se za generisanje equals i hashCode metoda koristi podatak
+	 * koji je jedinstven a poznat unapred (tzv. business key) npr. index studenta, isbn knjige, itd.
+	 * U slucaju da takvog obelezja nema, obicno se implementacija svodi na proveri da li je id (koji je kljuc) isti.
+	 * Posto u velikom broju slucajeva id baza generise, to znaci da u tranzijentnom stanju objekti nisu jednaki.
+	 * Postoji nekoliko resenja za ovaj problem:
+	 * 1. Naci neko jedinstveno obelezje
+	 * 2. Koristiti prirodne kljuceve
+	 * 3. Pre cuvanja na neki nacin saznati koja je sledeca vrednost koju ce baza generisati pa pozvati setId metodu da se kompletira objekat cak i pre cuvanja
+	 * 4. Na drugi nacin implementirati equals i hashCode - primer u klasi Teacher
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -68,15 +86,19 @@ public class Teacher {
 			return false;
 		}
 		Teacher t = (Teacher) o;
-		if (t.id == null || id == null) {
-			return false;
-		}
-		return Objects.equals(id, t.id);
+		return id != null && id.equals(t.getId());
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hashCode(id);
+		/*
+		 * Pretpostavka je da je u pitanju tranzijentni objekat (jos nije sacuvan u bazu) i da id ima null vrednost.
+		 * Kada se sacuva u bazu dobice non-null vrednost. To znaci da ce objekat imati razlicite kljuceve u dva stanja, te ce za generisan
+		 * hashCode i equals vratiti razlicite vrednosti. Vracanje konstantne vrednosti resava ovaj problem.
+		 * Sa druge strane ovakva implementacija moze da afektuje performanse u slucaju velikog broja objekata
+		 * koji ce zavrsiti u istom hash bucket-u.
+		 */
+		return 1337;
 	}
 
 	@Override

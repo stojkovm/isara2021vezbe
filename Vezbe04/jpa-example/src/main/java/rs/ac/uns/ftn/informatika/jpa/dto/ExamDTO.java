@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import rs.ac.uns.ftn.informatika.jpa.model.Exam;
 
 public class ExamDTO {
-	private Long id;
+	private Integer id;
 	private Integer grade;
 	private LocalDate date;
 	private CourseDTO course;
@@ -23,11 +23,11 @@ public class ExamDTO {
 		student = new StudentDTO(exam.getStudent());
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

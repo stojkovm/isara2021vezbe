@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.informatika.jpa.dto;
 import rs.ac.uns.ftn.informatika.jpa.model.Student;
 
 public class StudentDTO {
-	private Long id;
+	private Integer id;
 	private String index;
 	private String firstName;
 	private String lastName;
@@ -16,14 +16,14 @@ public class StudentDTO {
 		this(student.getId(), student.getIndex(), student.getFirstName(), student.getLastName());
 	}
 
-	public StudentDTO(Long id, String index, String firstName, String lastName) {
+	public StudentDTO(Integer id, String index, String firstName, String lastName) {
 		this.id = id;
 		this.index = index;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 

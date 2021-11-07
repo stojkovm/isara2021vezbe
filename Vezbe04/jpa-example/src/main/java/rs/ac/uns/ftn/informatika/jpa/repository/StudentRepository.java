@@ -39,7 +39,7 @@ import rs.ac.uns.ftn.informatika.jpa.model.Student;
  * da bude samo readonly ili treba da ima findAll metodu koja pritom treba
  * da vraca samo deo rezultata ogranicen pomocu Pageable.
  */
-public interface StudentRepository extends JpaRepository<Student, Long> {
+public interface StudentRepository extends JpaRepository<Student, Integer> {
 
 	public Student findOneByIndex(String index);
 
@@ -79,5 +79,5 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 	
 	//https://dzone.com/articles/how-to-decide-between-join-and-join-fetch
 	@Query("select s from Student s join fetch s.exams e where s.id =?1")
-	public Student findOneWithExams(Long studentId);
+	public Student findOneWithExams(Integer studentId);
 }
