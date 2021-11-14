@@ -4,6 +4,31 @@
   Primeri za laboratorijske vežbe iz predmeta Internet softverske arhitekture
 </h1>
 
+# OBAVEŠTENJA
+
+Obaveštenje 14.11.2021.
+
+Obaveštavaju se studenti da će se kontrolna tačka održati u terminima vežbi od 13.12.2021. do 24.12.2021.
+Izlazak na kontrolnu tačku nije obavezan.
+Prijave su individualne i vrše se putem forme koju možete naći na Teams kanalu za predmet.
+Prijave traju do 9.12.2021. U 23:59:59. Naknadne prijave nisu dozvoljene.
+Svaki student koji se prijavi za kontrolnu tačku u obavezi je da snimi video funkcionalnosti koje su potrebne za ostvarivanje olakšica u skladu sa specifikacijom.
+Video ne sme da bude duži od 5 minuta i za svaku funkcionalnost koja je implementirana potrebno je demonstrirati kako radi. Zatim je potrebno prikazati kod (frontend i backend) koji omogućava rad funkcionalnosti i podatke u bazi koji su se pri demonstraciji očitali ili upisali.
+Video je potrebno okačiti na YouTube i link dodati pri popunjavanju forme.
+U formi u odgovarajućem polju popuniti timestamp početka za svaku funkcionalnost u formatu:
+Funkcionalnost 3.XX - mm:ss
+Funkcionalnost 3.XX - mm:ss
+Funkcionalnost 3.XX - mm:ss
+Funkcionalnost 3.XX - mm:ss
+gde XX predstavlja broj funkcionalnosti, mm minute i ss sekunde.
+
+Ceo tim može snimiti jedan zajednički video i isti link postaviti za svaku individualnu prijavu (maksimalno 5 minuta po članu tima, ukupno maksimalno 15 minuta).
+
+U formi studenti treba da upišu informaciju kod kojeg asistenta slušaju vežbe jer će kod tog asistenta i braniti projekat.
+Studenti koji ponovo slušaju predmet (stari studenti) koji ne slušaju vežbe (nemaju pristup Teamsu) a žele da izađu na kontrolnu tačku kao asistenta treba da navedu Milana Stojkova.
+
+Po pregledanju snimaka biće objavljen raspored u terminima vežbi za studente koji su stekli uslov za odbranu kontrolne tačke.
+
 # FAQ
 
 1. Profesori/asistenti mi ne odgovaraju na email. Zašto?
