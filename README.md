@@ -15,11 +15,11 @@ Prijave traju do 9.12.2021. U 23:59:59. Naknadne prijave nisu dozvoljene.
 Svaki student koji se prijavi za kontrolnu tačku u obavezi je da snimi video funkcionalnosti koje su potrebne za ostvarivanje olakšica u skladu sa specifikacijom.
 Video ne sme da bude duži od 5 minuta i za svaku funkcionalnost koja je implementirana potrebno je demonstrirati kako radi. Zatim je potrebno prikazati kod (frontend i backend) koji omogućava rad funkcionalnosti i podatke u bazi koji su se pri demonstraciji očitali ili upisali.
 Video je potrebno okačiti na YouTube i link dodati pri popunjavanju forme.
-U formi u odgovarajućem polju popuniti timestamp početka za svaku funkcionalnost u formatu:
-Funkcionalnost 3.XX - mm:ss
-Funkcionalnost 3.XX - mm:ss
-Funkcionalnost 3.XX - mm:ss
-Funkcionalnost 3.XX - mm:ss
+U formi u odgovarajućem polju popuniti timestamp početka za svaku funkcionalnost u formatu:<br>
+Funkcionalnost 3.XX - mm:ss<br>
+Funkcionalnost 3.XX - mm:ss<br>
+Funkcionalnost 3.XX - mm:ss<br>
+Funkcionalnost 3.XX - mm:ss<br>
 gde XX predstavlja broj funkcionalnosti, mm minute i ss sekunde.
 
 Ceo tim može snimiti jedan zajednički video i isti link postaviti za svaku individualnu prijavu (maksimalno 5 minuta po članu tima, ukupno maksimalno 15 minuta).
