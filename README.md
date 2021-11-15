@@ -126,4 +126,9 @@ Po pregledanju snimaka biće objavljen raspored u terminima vežbi za studente k
     - Niste ograničeni da prikažete informacije na načina na koji to piše u specifikaciji projekta. Bitno je samo da sve informacije koje se traže negde prikažete, a sami osmislite gde ih ima smisla prikazati. Što se tiče koraka za rezervacije, gledajte da ispoštujete taj višekoračni tok, a kako će to izgledati u projektu sami osmislite.
 43. Na kontrolnoj tački se traže stranice i prikaz podataka za nešto što do tog trenutka ne treba implementirati. Kako da spremimo taj deo funkcionalnosti?
     - Kreirajte placeholder stranice sa dummy podacima koje ćete zameniti kada budete stvarno implementirali te funkcionalnosti do kraja.
+44. U tačkama 3.2 i 3.3 su opisane dve vrste registracije, jedna za običnog korisnika, druga za vlasnika vikendica, brodova i instruktora. Da li ove dve registracije treba da budu objedinjene, ili razdvojene?
+    - Registracije treba da budu odvojene, pošto kada se registruje običan korisnik, on direktno dobija mejl sa linkom potvrde, dok se za registraciju ostalih korisnika šalje zahtev adminu na odobravanje, i postoje još neka polja koja je potrebno popuniti. Što se tiče izgleda ovih stranica, možete ih nekako objediniti, da na primer imate odvojene kartice ili radio butone pa da se u zavisnosti od odabira tipa registracije prikažu drugačija polja, ali to je na Vama.
+45. Kada se dodaje novi administrator na sistem, da li je potrebno da se pravi novi nalog, ili da to implementiramo u vidu neke liste svih korisnika, iz koje onda postojeći admin bira ko će postati novi admin?
+    - Postojeći administrator dodaje novog, popunjavajući formu za dodavanje, znači pravi se novi nalog.
+    
 
