@@ -1,0 +1,22 @@
+<mat-toolbar class="app-navbar" color="primary">
+    <div class="right">
+        <div fxFlex="1 1 auto" fxLayout="row" fxLayoutAlign="flex-end center">
+            <button *ngIf="!hasSignedIn()" mat-button mat-ripple routerLink="/signup">
+                <span>Sign up</span>
+            </button>
+            <button *ngIf="!hasSignedIn()" mat-button mat-ripple routerLink="/login">
+                <span>Login</span>
+            </button>
+            <button *ngIf="hasSignedIn()" [matMenuTriggerFor]="userMenu" class="greeting-button" mat-button mat-ripple>
+                <span>Hello, {{userName()}}</span>
+            </button>
+            <button *ngIf="hasSignedIn()" [matMenuTriggerFor]="userMenu" class="greeting-hamburger" mat-icon-button
+                mat-ripple>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #userMenu [overlapTrigger]="false" class="app-header-userMenu" yposition="below">
+                <app-user-menu></app-user-menu>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
