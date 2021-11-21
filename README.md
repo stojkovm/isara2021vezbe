@@ -130,5 +130,10 @@ Po pregledanju snimaka biće objavljen raspored u terminima vežbi za studente k
     - Registracije treba da budu odvojene, pošto kada se registruje običan korisnik, on direktno dobija mejl sa linkom potvrde, dok se za registraciju ostalih korisnika šalje zahtev adminu na odobravanje, i postoje još neka polja koja je potrebno popuniti. Što se tiče izgleda ovih stranica, možete ih nekako objediniti, da na primer imate odvojene kartice ili radio butone pa da se u zavisnosti od odabira tipa registracije prikažu drugačija polja, ali to je na Vama.
 45. Kada se dodaje novi administrator na sistem, da li je potrebno da se pravi novi nalog, ili da to implementiramo u vidu neke liste svih korisnika, iz koje onda postojeći admin bira ko će postati novi admin?
     - Postojeći administrator dodaje novog, popunjavajući formu za dodavanje, znači pravi se novi nalog.
-    
-
+45. Kada se dodaje novi administrator na sistem, da li je potrebno da se pravi novi nalog, ili da to implementiramo u vidu neke liste svih korisnika, iz koje onda postojeći admin bira ko će postati novi admin?
+    - Postojeći administrator dodaje novog, popunjavajući formu za dodavanje, znači pravi se novi nalog.
+46. Da li moramo da pravimo posebnu stranicu za rezervaciju kod klijenata, ili rezervacija može da se izvršava na početnoj stranici (stranici za prikaz svih vikendica)?
+    - Kod rezervacije, ako imate izlistane sve vikendice na početnoj strani, možete da uz male dopune napravite da ona takođe predstavlja formu za rezervaciju kod klijenata (bitno je da je to samo kod njih).
+Dodajte pretragu i filtriranje (3.20). Takođe vodite računa da Vam radi sortiranje pretraženih i filtriranih entiteta (ispoštujte korake). Ukoliko kod klijenata imate posebnu stranicu za rezervaciju, morate ispoštovati sve navedene korake, tako da onda opet morate imati prikaz liste entiteta koji su zadovoljili uslove.
+47. Da li dodatne usluge vlasnici biraju iz liste ponuđenih vrednosti, ili pišu tekst o njima u slobodnoj formi?
+    - "Dodatne usluge (dodaju se u slobodnoj formi kao tagovi, npr. WiFi, parking, itd)". Zbog ovoga bi trebalo da imate predefinisane entitete usluga koje vlasnici biraju.
