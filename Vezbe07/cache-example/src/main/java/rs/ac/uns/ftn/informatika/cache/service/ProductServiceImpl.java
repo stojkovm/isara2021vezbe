@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import rs.ac.uns.ftn.informatika.cache.domain.Product;
 import rs.ac.uns.ftn.informatika.cache.repository.ProductNamedQueryRepositoryExample;
 import rs.ac.uns.ftn.informatika.cache.repository.ProductQueryRepositoryExample;
@@ -23,6 +25,9 @@ public class ProductServiceImpl implements ProductService {
 	private ProductQueryRepositoryExample productQueryRepository;
 	@Autowired
 	private ProductNamedQueryRepositoryExample productNamedQueryRepository;	
+	
+	//@Autowired
+	//private ObjectMapper objectMapper;
 
 	public List<Product> findAll() {
 		return productRepository.findAll();

@@ -36,6 +36,7 @@ public class TimeLoggingAspect {
 	public void sampleAdviceReturning(JoinPoint joinPoint, Object result) throws Throwable {
 		LOGGER.info("@After: Posle poziva metode - " + joinPoint.getTarget().getClass().getName() + " - " + new Date());
 		System.out.println("Objekat vracen iz metode: " + result);
+		
 	}
 	
 	/*

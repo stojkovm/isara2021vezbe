@@ -15,7 +15,8 @@ public class SampleService {
 	
 	public void someMethodAround() {
 		System.out.println("Metoda someMethodAround se izvrsava!");
-	}
+	}	
+	
 	
 	/*
 	 * Primer metode koja ima neki parametar

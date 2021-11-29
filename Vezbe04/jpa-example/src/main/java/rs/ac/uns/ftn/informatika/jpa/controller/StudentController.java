@@ -47,6 +47,7 @@ public class StudentController {
 		return new ResponseEntity<>(studentsDTO, HttpStatus.OK);
 	}
 
+	// GET /api/students?page=0&size=5&sort=firstName,DESC
 	@GetMapping
 	public ResponseEntity<List<StudentDTO>> getStudentsPage(Pageable page) {
 

@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 /*
  * Primer upita koji se specificira nad samom klasom koja predstavlja tabelu u bazi
  */
-@NamedQuery(name="Product.findByPrice", query="select name, origin, price from Product p where p.price=?1")
+@NamedQuery(name="Product.findByPrice", query="select p from Product p where p.price=?1")
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -27,6 +27,17 @@ public class Product implements Serializable {
 	@Column(name="price")
 	private Long price;
 	
+	
+	
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Product(String name, String origin, Long price) {
+		this.name = name;
+		this.origin = origin;
+		this.price = price;
+	}
 	public String getOrigin() {
 		return origin;
 	}

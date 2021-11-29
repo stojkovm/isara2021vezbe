@@ -36,6 +36,7 @@ export class AuthService {
       .pipe(map((res) => {
         console.log('Login success');
         this.access_token = res.accessToken;
+        localStorage.setItem("jwt", res.accessToken)
       }));
   }
 

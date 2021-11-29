@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /*
  * @Entity anotacija naznacava da je klasa perzistentni entitet. Klasa ima konstruktor bez parametara.
@@ -37,6 +38,7 @@ import javax.persistence.OneToMany;
  * - Unidirekcione/bidirekcione @ManyToMany sa List kolekcijom su prilično neefikasne
  */
 @Entity
+@Table(name = "nazivTabele")
 public class Student {
 
 	/*
@@ -176,7 +178,7 @@ public class Student {
 	 * 3. Pre cuvanja na neki nacin saznati koja je sledeca vrednost koju ce baza generisati pa pozvati setId metodu da se kompletira objekat cak i pre cuvanja
 	 * 4. Na drugi nacin implementirati equals i hashCode - primer u klasi Teacher
 	 */
-	@Override
+	@Override	
 	public boolean equals(Object o) {
 		if (this == o) {
 			return true;
