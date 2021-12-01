@@ -6,6 +6,12 @@
 
 # OBAVEŠTENJA
 
+__Obaveštenje 1.12.2021.__
+
+__Obaveštavaju se studenti da se rok za prijavu za kontrolnu tačku pomera na 10.12.2021. do 23:59:59.__
+
+----------------------
+
 Obaveštenje 14.11.2021.
 
 Obaveštavaju se studenti da će se kontrolna tačka održati u terminima vežbi od 13.12.2021. do 24.12.2021.
