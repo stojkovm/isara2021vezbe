@@ -16,6 +16,10 @@ __Raspored po terminima možete naći [ovde](https://github.com/stojkovm/isara20
 __Stari studenti će dobiti informaciju na email iz prijave o terminu demonstracije.__
 
 
+__Obaveštavaju se studenti da će se odbrana projekta održati 26, 27. i 28. januara. Rok za završetak projekta je 20.1.2022. 23:59:59.__
+__Rokovi se neće pomerati. Tačna satnica po timovima biće objavljena naknadno.__
+
+
 ----------------------
 
 Obaveštenje 1.12.2021.
