@@ -11,7 +11,7 @@ __Obaveštenje 12.12.2021.__
 __Obaveštavaju se studenti da će se kontrolna tačka održati u terminima vežbi tokom nedelje 13-17.12.2021.__
 __Studenti koji demonstriraju svoje rešenje u terminu vežbi treba da odrade revert projekta na posledji dozvoljeni commit u skladu sa prethodno definisanim terminom prijave.__
 __Ovonedeljni termini vežbi biće održani u konsultativnom režimu, te studenti koji ne rade demonstraciju nisu u obavezi da prisustvuju ukoliko nemaju pitanja.__
-__Raspored po terminima možete naći [ovde](https://github.com/stojkovm/isara2021vezbe/blob/main/Specifikacija/Specifikacija%20projekta%20RA%20II%20ISA%202021-2022.pdf).__
+__Raspored po terminima možete naći [ovde](https://github.com/stojkovm/isara2021vezbe/blob/main/Specifikacija/ISA%20kontrolna%20tacka%20decembar%202021%20Raspored.pdf).__
 __Stari studenti će dobiti informaciju na email iz prijave o terminu demonstracije.__
 
 Obaveštenje 1.12.2021.
