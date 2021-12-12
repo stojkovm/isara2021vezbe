@@ -14,6 +14,9 @@ __Ovonedeljni termini vežbi biće održani u konsultativnom režimu, te student
 __Raspored po terminima možete naći [ovde](https://github.com/stojkovm/isara2021vezbe/blob/main/Specifikacija/ISA%20kontrolna%20tacka%20decembar%202021%20Raspored.pdf).__
 __Stari studenti će dobiti informaciju na email iz prijave o terminu demonstracije.__
 
+
+----------------------
+
 Obaveštenje 1.12.2021.
 
 Obaveštavaju se studenti da se rok za prijavu za kontrolnu tačku pomera na 10.12.2021. do 23:59:59.
