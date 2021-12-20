@@ -28,7 +28,7 @@ Prezentacija se nalazi na [linku](https://github.com/stojkovm/isara2021vezbe/blo
 
 WebSockets API je tehnologija koja omogućava otvaranje dvosmerne komunikacije između klijenta i servera. Pomoću ovog API-ja mogu da se šalju poruke serveru, ali i server može da inicira komunikaciju i šalje poruku klijentu.  
 
-Primer rada sa [Web Socket](https://www.websocket.org/aboutwebsocket.html)-ima i [STOMP](http://jmesnil.net/stomp-websocket/doc/)-om u Spring-u nalazi se u projektu _websockets-example_.
+Primer rada sa [Web Socket](https://blog.bitsrc.io/deep-dive-into-websockets-e6c4c7622423)-ima i [STOMP](http://jmesnil.net/stomp-websocket/doc/)-om u Spring-u nalazi se u projektu _websockets-example_.
 
 U primeru su prikazani:
 
@@ -46,8 +46,6 @@ Podrška za korišćenje WebSockets u Spring aplikaciji se može uključiti doda
     <artifactId>spring-boot-starter-websocket</artifactId>
 </dependency>
 ```
-
-Nekoliko tekstova na temu `REST vs WebSockets` možete naći na [1](https://www.pubnub.com/blog/websockets-vs-rest-api-understanding-the-difference/) i [2](https://blogs.oracle.com/pavelbucek/websocket-vs-rest).
 
 ### Demo aplikacije
 
