@@ -6,23 +6,32 @@
 
 # OBAVEŠTENJA
 
-**Obaveštenje 20.8.2022.**
+---
 
-**Obaveštavaju se studenti da će se odbrana projekta održati u subotu 10. septembra u NTP 307 i 309.**
+**Obaveštenje 7.9.2022.**
+
+**Obaveštavaju se studenti da će se odbrana projekta održati 10. septembra u NTP 307 i NTP 309.**
+**Studenti koji demonstriraju svoje rešenje odradiće revert projekta na poslednji dozvoljeni commit u skladu sa prethodno definisanim terminom završetka projekta.**
+**Raspored timova po terminima možete naći [ovde](https://github.com/stojkovm/isara2021vezbe/blob/main/Specifikacija/ISA%20RA-IN%20septembar%20-%20Raspored.pdf).**
+---
+
+Obaveštenje 20.8.2022.
+
+Obaveštavaju se studenti da će se odbrana projekta održati u subotu 10. septembra u NTP 307 i 309.
 <br/>
-**Prijava za odbranu vrši se preko [forme](https://forms.gle/nC45k9T9V6HkG3CU9).**
+Prijava za odbranu vrši se preko [forme](https://forms.gle/nC45k9T9V6HkG3CU9).
 <br/>
-**Prijave i rad na projektu su mogući do 6.9.2022. u 23:59:59**
+Prijave i rad na projektu su mogući do 6.9.2022. u 23:59:59
 <br/>
-**Po završetku roka za izradu projekta, repozitorijume obavezno postavite na public. Naknadne prijave neće se uvažiti.**
+Po završetku roka za izradu projekta, repozitorijume obavezno postavite na public. Naknadne prijave neće se uvažiti.
 <br/>
 <br/>
-**Studenti koji demonstriraju svoje rešenje odradiće revert projekta na poslednji dozvoljeni commit u skladu sa prethodno definisanim terminom završetka projekta.
+Studenti koji demonstriraju svoje rešenje odradiće revert projekta na poslednji dozvoljeni commit u skladu sa prethodno definisanim terminom završetka projekta.
 Ocene u septembru se skaliraju i maksimalna ocena je 8. To znači da morate uraditi projekat za ocenu 10 (po specifikaciji) da biste osvojili finalnu ocenu 8, itd.
-Ukoliko je jedan deo tima položio u januaru ili junu i demonstrirao sve što je potrebno za ocene 9 i 10, a drugi deo tima polaže u septembaru, deo tima koji nije polagao u januaru ili junu urađene stavke za 9 i 10 ne može da nasledi od kolega već ih mora uraditi ispočetka.**
+Ukoliko je jedan deo tima položio u januaru ili junu i demonstrirao sve što je potrebno za ocene 9 i 10, a drugi deo tima polaže u septembaru, deo tima koji nije polagao u januaru ili junu urađene stavke za 9 i 10 ne može da nasledi od kolega već ih mora uraditi ispočetka.
 <br/>
 <br/>
-**Raspored timova po terminima biće postavljen po završetku roka za prijavu.**
+Raspored timova po terminima biće postavljen po završetku roka za prijavu.
 ---
 
 Obaveštenje 8.6.2022.
