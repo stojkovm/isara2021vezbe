@@ -60,6 +60,7 @@ Sve što je potrebno jesu tri stvari:
 			<version>2.9.2</version>
 		</dependency>
 ```
+
 Ukoliko je uključena samo prva navedena zavisnost, dokumentacija se može videti u JSON formatu na adresi [http://localhost:8080/v2/api-docs](http://localhost:8080/v2/api-docs). Ako se uključi i druga zavisnost, dokumentacija se može videti u čitljivijem formatu na adresi [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ![Swagger UI](https://i.imgur.com/JI354gs.png "Swagger UI")
@@ -67,12 +68,61 @@ Ukoliko je uključena samo prva navedena zavisnost, dokumentacija se može videt
 2. Registrovati Swagger kao Spring bean što je prikazano u klasi `SwaggerConfiguration.java`
 3. Anotirati Spring kontrolere i metode odgovarajućim anotacijama opisanim na [linku](https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X)
 
+## rate-limiter-example
+
+U primeru je predstavljen RateLimiting mehanizam; ograničavanje broja zahteva u određenom vremenskom intervalu.
+
+Korišćena je in-memory baza, slično primeru cache-example.
+
+Biblioteka upotrebljena u okviru primera je [**Resilience4j**](https://resilience4j.readme.io/).
+Neophodno je uključiti je kao zavisnost u okviru **pom.xml**, kao i zavisnost za **AOP** na koju se oslanja.
+
+```
+		<dependency>
+			<groupId>io.github.resilience4j</groupId>
+			<artifactId>resilience4j-spring-boot2</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+```
+
+Konfigurisanje moguće je kroz application.properties datoteku. Moguće je kreiranje više konfiguracija za više različitih slučajeva, s tim da ime mora biti jedinstveno.
+
+U isečku, definisane su dve instance, **standard** i **premium**. Za svaku definisane su sledeće konfiguracije:
+
+- **limitForPeriod**: maksimalan broj poziva
+- **limitRefreshPeriod**: za definisani vremenski interval
+- **timeoutDuration**: vreme čekanja na obradu zahteva (korisno u slučaju dugih vremenskih intervala kako bi zahtev sačekao neko vreme na izvršavanje u slučaju da je poslat pri kraju isteka ograničenog perioda)
+
+```
+resilience4j.ratelimiter.instances.standard.limitForPeriod=1
+resilience4j.ratelimiter.instances.standard.limitRefreshPeriod=10s
+resilience4j.ratelimiter.instances.standard.timeoutDuration=2
+
+resilience4j.ratelimiter.instances.premium.limitForPeriod=3
+resilience4j.ratelimiter.instances.premium.limitRefreshPeriod=1s
+resilience4j.ratelimiter.instances.premium.timeoutDuration=0
+```
+
+Biblioteka nudi još dodatnih funkcionalnosti koje omogućuju bolju otpornost na greške aplikacija i mogu se pogledati u okviru [dokumentacije](https://resilience4j.readme.io/docs). Takođe, dokumentaciju prati i lista primera koji su javno dostupni na [GitHub repozitorijumu](https://github.com/resilience4j/resilience4j-spring-boot2-demo).
+
+### Primena
+
+Sa porastom broja korisnika aplikacije, raste i broj zahteva koje server treba da opsluži. U takvim slučajevima želimo da izbegnemo situacije u kojima nam server može biti preopterećen. RateLimiting je jedan od načina ograničavanja opterečenja servera.
+
+Bezbednost aplikacija je bitan aspekt svakog razvoja. Jedan od čestih napada sa kojima se srećemo je i DoS napad (link). Jedan od načina zaštite od ovakvih napada jeste ograničavanje broja poziva upućenih na naš API.
+
+Mnogi servisi dostupni preko interneta koji pružaju mogućnost poziva svog API-ja nisu u potpunosti besplatni i podržavaju različite pakete. Način na koji se pomenuti princip može implementirati jeste ograničavanje broja poziva određene grupe korisnika. Moguće je definisati više grupa i za svaku od njih poseban broj poziva za određeni interval.
 
 ## cache-example
 
-U primeru je predstavljena ideja o keširanju kao konceptu i o postojanju dva nivoa keša koja Hibernate podržava - L1 i L2. Takođe, dati su i primeri kreiranja _NamedQuery_-ja i pisanja _query_-ja kao alternativnom načinu u odnosu na ono što je predstavljeno u __jpa-example__ primeru na vežbama 3.
+U primeru je predstavljena ideja o keširanju kao konceptu i o postojanju dva nivoa keša koja Hibernate podržava - L1 i L2. Takođe, dati su i primeri kreiranja _NamedQuery_-ja i pisanja _query_-ja kao alternativnom načinu u odnosu na ono što je predstavljeno u **jpa-example** primeru na vežbama 3.
 
 U primeru je korišćena _in-memory_ baza [H2](http://www.h2database.com/html/main.html) koja je zgodna za brži i lakši razvoj i ne zahteva posebnu instalaciju (_workbench_-u se može pristupiti iz _browser_-a). Još neki proizvođači _in-memory_ baza su [HSQLDB](http://hsqldb.org/) i [Apache Derby](https://db.apache.org/derby/). H2 baza se integriše sa Maven aplikacijom dodavanjem sledeće zavisnosti:
+
 ```
 <!-- Dependency za in-memory bazu H2 -->
 <dependency>
