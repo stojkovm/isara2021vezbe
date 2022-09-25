@@ -68,55 +68,6 @@ Ukoliko je uključena samo prva navedena zavisnost, dokumentacija se može videt
 2. Registrovati Swagger kao Spring bean što je prikazano u klasi `SwaggerConfiguration.java`
 3. Anotirati Spring kontrolere i metode odgovarajućim anotacijama opisanim na [linku](https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X)
 
-## rate-limiter-example
-
-U primeru je predstavljen RateLimiting mehanizam; ograničavanje broja zahteva u određenom vremenskom intervalu.
-
-Korišćena je in-memory baza, slično primeru cache-example.
-
-Biblioteka upotrebljena u okviru primera je [**Resilience4j**](https://resilience4j.readme.io/).
-Neophodno je uključiti je kao zavisnost u okviru **pom.xml**, kao i zavisnost za **AOP** na koju se oslanja.
-
-```
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-spring-boot2</artifactId>
-			<version>1.5.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
-```
-
-Konfigurisanje moguće je kroz application.properties datoteku. Moguće je kreiranje više konfiguracija za više različitih slučajeva, s tim da ime mora biti jedinstveno.
-
-U isečku, definisane su dve instance, **standard** i **premium**. Za svaku definisane su sledeće konfiguracije:
-
-- **limitForPeriod**: maksimalan broj poziva
-- **limitRefreshPeriod**: za definisani vremenski interval
-- **timeoutDuration**: vreme čekanja na obradu zahteva (korisno u slučaju dugih vremenskih intervala kako bi zahtev sačekao neko vreme na izvršavanje u slučaju da je poslat pri kraju isteka ograničenog perioda)
-
-```
-resilience4j.ratelimiter.instances.standard.limitForPeriod=1
-resilience4j.ratelimiter.instances.standard.limitRefreshPeriod=10s
-resilience4j.ratelimiter.instances.standard.timeoutDuration=2
-
-resilience4j.ratelimiter.instances.premium.limitForPeriod=3
-resilience4j.ratelimiter.instances.premium.limitRefreshPeriod=1s
-resilience4j.ratelimiter.instances.premium.timeoutDuration=0
-```
-
-Biblioteka nudi još dodatnih funkcionalnosti koje omogućuju bolju otpornost na greške aplikacija i mogu se pogledati u okviru [dokumentacije](https://resilience4j.readme.io/docs). Takođe, dokumentaciju prati i lista primera koji su javno dostupni na [GitHub repozitorijumu](https://github.com/resilience4j/resilience4j-spring-boot2-demo).
-
-### Primena
-
-Sa porastom broja korisnika aplikacije, raste i broj zahteva koje server treba da opsluži. U takvim slučajevima želimo da izbegnemo situacije u kojima nam server može biti preopterećen. RateLimiting je jedan od načina ograničavanja opterečenja servera.
-
-Bezbednost aplikacija je bitan aspekt svakog razvoja. Jedan od čestih napada sa kojima se srećemo je i DoS napad (link). Jedan od načina zaštite od ovakvih napada jeste ograničavanje broja poziva upućenih na naš API.
-
-Mnogi servisi dostupni preko interneta koji pružaju mogućnost poziva svog API-ja nisu u potpunosti besplatni i podržavaju različite pakete. Način na koji se pomenuti princip može implementirati jeste ograničavanje broja poziva određene grupe korisnika. Moguće je definisati više grupa i za svaku od njih poseban broj poziva za određeni interval.
-
 ## cache-example
 
 U primeru je predstavljena ideja o keširanju kao konceptu i o postojanju dva nivoa keša koja Hibernate podržava - L1 i L2. Takođe, dati su i primeri kreiranja _NamedQuery_-ja i pisanja _query_-ja kao alternativnom načinu u odnosu na ono što je predstavljeno u **jpa-example** primeru na vežbama 3.
@@ -290,8 +241,148 @@ Za malo kompleksnije upite ka bazi, metode repozitorijuma koje Hibernate koristi
 2. [Difference between First and Second Level Cache in Hibernate](https://javarevisited.blogspot.com/2017/03/difference-between-first-and-second-level-cache-in-Hibernate.html)
 3. [Spring cache annotations: some tips & tricks](https://www.foreach.be/blog/spring-cache-annotations-some-tips-tricks)
 
+## rate-limiter-example
+
+U primeru je predstavljen RateLimiting mehanizam; ograničavanje broja zahteva u određenom vremenskom intervalu.
+
+Korišćena je in-memory baza, slično primeru cache-example.
+
+Biblioteka upotrebljena u okviru primera je [**Resilience4j**](https://resilience4j.readme.io/).
+Neophodno je uključiti je kao zavisnost u okviru **pom.xml**, kao i zavisnost za **AOP** na koju se oslanja.
+
+```
+<dependency>
+	<groupId>io.github.resilience4j</groupId>
+	<artifactId>resilience4j-spring-boot2</artifactId>
+	<version>1.5.0</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-aop</artifactId>
+</dependency>
+```
+
+Konfigurisanje moguće je kroz application.properties datoteku. Moguće je kreiranje više konfiguracija za više različitih slučajeva, s tim da ime mora biti jedinstveno.
+
+U isečku, definisane su dve instance, **standard** i **premium**. Za svaku definisane su sledeće konfiguracije:
+
+- **limitForPeriod**: maksimalan broj poziva
+- **limitRefreshPeriod**: za definisani vremenski interval
+- **timeoutDuration**: vreme čekanja na obradu zahteva (korisno u slučaju dugih vremenskih intervala kako bi zahtev sačekao neko vreme na izvršavanje u slučaju da je poslat pri kraju isteka ograničenog perioda)
+
+```
+resilience4j.ratelimiter.instances.standard.limitForPeriod=1
+resilience4j.ratelimiter.instances.standard.limitRefreshPeriod=10s
+resilience4j.ratelimiter.instances.standard.timeoutDuration=2
+
+resilience4j.ratelimiter.instances.premium.limitForPeriod=3
+resilience4j.ratelimiter.instances.premium.limitRefreshPeriod=1s
+resilience4j.ratelimiter.instances.premium.timeoutDuration=0
+```
+
+Biblioteka nudi još dodatnih funkcionalnosti koje omogućuju bolju otpornost na greške aplikacija i mogu se pogledati u okviru [dokumentacije](https://resilience4j.readme.io/docs). Takođe, dokumentaciju prati i lista primera koji su javno dostupni na [GitHub repozitorijumu](https://github.com/resilience4j/resilience4j-spring-boot2-demo).
+
+### Primena
+
+Sa porastom broja korisnika aplikacije, raste i broj zahteva koje server treba da opsluži. U takvim slučajevima želimo da izbegnemo situacije u kojima nam server može biti preopterećen. RateLimiting je jedan od načina ograničavanja opterečenja servera.
+
+Bezbednost aplikacija je bitan aspekt svakog razvoja. Jedan od čestih napada sa kojima se srećemo je i [DoS napad](https://www.paloaltonetworks.com/cyberpedia/what-is-a-denial-of-service-attack-dos). Jedan od načina zaštite od ovakvih napada jeste ograničavanje broja poziva upućenih na naš API.
+
+Mnogi servisi dostupni preko interneta koji pružaju mogućnost poziva svog API-ja nisu u potpunosti besplatni i podržavaju različite pakete. Način na koji se pomenuti princip može implementirati jeste ograničavanje broja poziva određene grupe korisnika. Moguće je definisati više grupa i za svaku od njih poseban broj poziva za određeni interval.
+
+## redis-cache-example
+
+U okviru primera prikazan je pristup keširanju upotrebom key-value NoSQL baze [Redis](https://redis.io/).
+
+NoSQL baze su sveprisutne u svetu razvoja softvera od svog nastanka 2010-ih godina. Glavna odlika ovih baza je nepostojanje klasične tabelarne strukture podataka kao i SQL-a kao upitnog jezika (odakle i potiče sam naziv). Potreba za NoSQL bazama posledica je raznolikosti i količine podataka koji nastaju u okviru modernih aplikacija, pogotovo socijalnih platformi.
+
+U okviru primera demonstrirane su slične funkcionalnosti prikazane u okviru [cache-example](#cache-example).
+
+Kako bi se uključila podrška za rad sa kešom i Redis bazom, u okviru **pom.xml** datoteke dodate su sledeće zavisnosti:
+
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-cache</artifactId>
+	<version>2.4.3</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
+	<version>2.4.3</version>
+</dependency>
+```
+
+U okviru **CacheConfiguration** klase nalazi se konfiguracija keširanja uz pomoć Redis-a. Dat je primer izmene **default-ne** konfiguracije, kao i fine-tuning keša. U isečku su izdvojena sledeća podešavanja:
+
+- **TTL**: ukupno vreme koje objekat može provesti u kešu pre nego što se automatski briše,
+- **rukovanje null vrednostima**: eksplicitno je navedeno da se null vrednosti ne keširaju,
+- **prefix**: svaki objekat se čuva u bazi pod ključem čija je predefinisana vrednost "ime_keša::redni_broj_objekta"; dodatno je moguće definisati prefiks koji će ključ sadržati,
+- **serijalizacija**: moguće je definisati koji serijalizator će biti korišćen za zapisivanje objekata u bazi.
+
+```
+.entryTtl(Duration.ofMinutes(15))
+.disableCachingNullValues()
+.prefixCacheNameWith("isa-example:")
+.serializeValuesWith(RedisSerializationContext.SerializationPair
+		.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+```
+
+U okviru **ProductService** interfejsa dodate su anotacije iznad **findOne**, **updateOne** i **removeFromCache** metoda.
+
+```
+@Cacheable("product")
+Product findOne(long id);
+
+@CachePut(cacheNames = {"product"}, key = "#root.args[0]")
+Product updateOne(long id, Product product);
+
+@CacheEvict(cacheNames = {"product"}, allEntries = true)
+void removeFromCache();
+```
+
+Anotacije **@Cachable** i **@CacheEvict** opisane su u okviru prethodno [primera](#cache-example). Anotacija **@CachePut** razlikuje se od @Cachable u tome što će se metoda koju anotira uvek izvršiti. Nakon izvršavanja metode, povratna vrednost (Product objekat) biće **ažurirana u okviru keša**. Poseban značaj imaju podešavanja:
+
+- **cacheNames**: definiše u okviru kog keša se vrši ažuriranje,
+- **key**: definiše pod kojim ključem je objekat koji će biti ažuriran.
+
+Vrednost koju key uzima je, u ovom slučaju, vrednost prvog argumenta metode. U okviru [dokumentacije](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html#key--) dati su način preuzimanja drugih vrednosti koje mogu biti značajne.
+
+Korisna strana @CachePut anotacije je što keš sadrži najnovije objekte koji su u skladu sa stanjem u samoj bazi. Na ovaj način postiže se konzistentnost podataka u kešu i u bazi.
+
+### Testiranje
+
+U okviru test direktorijuma nalaze se test slučajevi koji pokrivaju dobavljanje vrednosti objekta iz keša, kao i slučaj ažuriranja objekta koji se već nalazi u kešu.
+
+Kako se primer oslanja na postojanje Redis baze, instanca baze mora postojati kako bu aplikacija funkcionisala. Bazu se može lokalno instalirati i može se kreirati njena instancu. U tom slučaju, pored instalacije, neophodno je voditi računa o stanju podataka i same baze što može biti nezgodan posao u slučaju da imamo veliki broj konkurentnih testova. Rešenje kojim se prevazilaze ovi problemi jeste upotreba [Testcontainers biblioteke](https://www.testcontainers.org/) koja omogućava kreiranje lightweight instanci neophodnih zavisnosti oslanjajući se na [Docker](https://www.docker.com/).
+
+Neophodno je uključiti sledeću zavisnost u okviru **pom.xml** datoteke:
+
+```
+<dependency>
+	<groupId>org.testcontainers</groupId>
+	<artifactId>testcontainers</artifactId>
+	<version>1.17.3</version>
+	<scope>test</scope>
+</dependency>
+```
+
+Dodatno, u okviru testova, upotrebom gorenavedene biblioteke, potrebno je kreirati sve potrebne zavisnosti na sledeći način:
+
+```
+static {
+	GenericContainer<?> redis =
+			new GenericContainer<>(DockerImageName.parse("redis:5.0.3-alpine")).withExposedPorts(6379);
+	redis.start();
+	System.setProperty("spring.redis.host", redis.getHost());
+	System.setProperty("spring.redis.port", redis.getMappedPort(6379).toString());
+}
+```
+
+Potrebno je navesti Docker sliku koja će se koristiti za kreiranje instance Redis baze, kao i koji port će biti vidljiv van kontejnera. Nakon toga, biblioteka kreira instancu baze i dodeljuje joj nasumičan slobodan port kog treba dodatno postaviti u podešavanjima aplikacije kako bi se ostvarila konekcija. Nakon završetka svih testova, instanca baze se uništava.
+
 ## Pokretanje Spring aplikacije (Eclipse)
 
-* importovati projekat u workspace: Import -> Maven -> Existing Maven Project
-* instalirati sve dependency-je iz pom.xml
-* desni klik na projekat -> Run as -> Java Application / Spring Boot app (ako je instaliran STS plugin sa Eclipse marketplace)
+- importovati projekat u workspace: Import -> Maven -> Existing Maven Project
+- instalirati sve dependency-je iz pom.xml
+- desni klik na projekat -> Run as -> Java Application / Spring Boot app (ako je instaliran STS plugin sa Eclipse marketplace)

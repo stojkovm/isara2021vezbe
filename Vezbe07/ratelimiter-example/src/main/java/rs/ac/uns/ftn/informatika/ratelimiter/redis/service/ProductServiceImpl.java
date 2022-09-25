@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.informatika.ratelimiter.service;
+package rs.ac.uns.ftn.informatika.ratelimiter.redis.service;
 
 import io.github.resilience4j.ratelimiter.RequestNotPermitted;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rs.ac.uns.ftn.informatika.ratelimiter.domain.Product;
-import rs.ac.uns.ftn.informatika.ratelimiter.repository.ProductRepository;
+import rs.ac.uns.ftn.informatika.ratelimiter.redis.repository.ProductRepository;
+import rs.ac.uns.ftn.informatika.ratelimiter.redis.domain.Product;
 
 import java.util.List;
 
@@ -18,6 +18,25 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	private ProductRepository productRepository;
+
+	public Product findOne(long id) {
+		LOG.info("Product with id: " + id + " successfully cached!");
+		return productRepository.findById(id).get();
+	}
+
+	public Product updateOne(long id, Product product) {
+		Product dbProduct = productRepository.findById(id).get();
+		dbProduct.setName(product.getName());
+		dbProduct.setOrigin(product.getOrigin());
+		dbProduct.setPrice(product.getPrice());
+
+		LOG.info("Product with id: " + id + " successfully updated!");
+		return productRepository.save(dbProduct);
+	}
+
+	public void removeFromCache() {
+		LOG.info("Products removed from cache!");
+	}
 
 	/*
 	 * Deklarativno oznacavanje da metodu mozemo izvrsiti

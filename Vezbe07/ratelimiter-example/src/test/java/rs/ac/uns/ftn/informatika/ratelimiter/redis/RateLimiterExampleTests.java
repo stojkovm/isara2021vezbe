@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.informatika.ratelimiter;
+package rs.ac.uns.ftn.informatika.ratelimiter.redis;
 
 import io.github.resilience4j.ratelimiter.RequestNotPermitted;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import rs.ac.uns.ftn.informatika.ratelimiter.domain.Product;
-import rs.ac.uns.ftn.informatika.ratelimiter.service.ProductService;
-import rs.ac.uns.ftn.informatika.ratelimiter.service.ProductServiceImpl;
+import rs.ac.uns.ftn.informatika.ratelimiter.redis.service.ProductServiceImpl;
+import rs.ac.uns.ftn.informatika.ratelimiter.redis.domain.Product;
+import rs.ac.uns.ftn.informatika.ratelimiter.redis.service.ProductService;
 
 import java.util.List;
 

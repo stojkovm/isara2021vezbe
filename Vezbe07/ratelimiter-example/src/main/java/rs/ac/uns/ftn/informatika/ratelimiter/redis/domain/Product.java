@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.informatika.ratelimiter.domain;
+package rs.ac.uns.ftn.informatika.ratelimiter.redis.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
